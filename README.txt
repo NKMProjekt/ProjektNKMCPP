@@ -1,7 +1,7 @@
-Projekt z programowania C++
-Programoúci: Noemi Szypu≥a, Karol Piotrowicz, Marcin Kurtz
+ÔªøProjekt z programowania C++
+Programi≈õci: Noemi Szypu≈Ça, Karol Piotrowicz, Marcin Kurtz
 
-Kierownik projektu: Noemi Szypu≥a
+Kierownik projektu: Noemi Szypu≈Ça
 
 Opis projektu:
 Do dodania ;)

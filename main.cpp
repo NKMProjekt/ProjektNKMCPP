@@ -1,4 +1,4 @@
-/*
+﻿/*
 Projekt z programowania w C++
 Programiści: Noemi Szypuła, Koarol Piotrowicz, Marcin Kurtz
 
