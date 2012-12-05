@@ -7,6 +7,9 @@ Opis projektu w OPISPROJEKTU.txt
 Opis pliku: główny plik programu.
 Data utworzenia:  4.12.2012
 Wersja: 0.01
+
+
+
 /**/
 #include <iostream>
 
