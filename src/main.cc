@@ -31,6 +31,7 @@ main (int argc, char *argv[])
 		std::cerr << ex.what() << std::endl;
 		return 1;
 	}
+	
 	Gtk::Window* main_win = 0;
 	builder->get_widget("main_window", main_win);
 
