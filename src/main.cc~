@@ -4,7 +4,7 @@
  * Copyright (C) 2012 Noemi Szypuła, Karol Piotrowicz, Marcin Kurtz <nkmprojekt@gmail.com>
  * 
  */
-
+/* Git test */
 #include <gtkmm.h>
 #include <iostream>
 #include "config.h"
