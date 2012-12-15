@@ -1,0 +1,15 @@
+/**/
+
+Projekt z programowania C++,
+Semestr 3, Informatyka
+Cz³onkowie projektu: Noemi Szypu³a, Karol Piotrowicz, Marcin Kurtz
+
+/**/
+Gmail
+login: nkmprojekt@gmail.com
+has³o: F+ePt9go
+/**/
+GitHub
+Login: NKMProjekt
+has³o: pHewEp3A
+/**/
