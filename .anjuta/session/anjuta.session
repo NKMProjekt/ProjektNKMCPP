@@ -3,11 +3,11 @@ Maximized=1
 Geometry=1311x744+55+24
 
 [Project Manager]
-Shortcut=ProjektNKMCPP//src//tetris
-Expand=tetris%%%ProjektNKMCPP%%%ProjektNKMCPP//src%%%ProjektNKMCPP//src//tetris%%%ProjektNKMCPP//src//ui%%%ProjektNKMCPP//tetrisdoc
+Shortcut=
+Expand=src%%%src//tetris%%%ProjektNKMCPP%%%ProjektNKMCPP//src%%%ProjektNKMCPP//src//tetris%%%ProjektNKMCPP//tetrisdoc
 
 [File Loader]
-Files=../../src/main.cc#51%%%../../AUTHORS#1
+Files=../../src/tetris.cc#24%%%../../src/tetris.h#32%%%../../src/main.cc#1%%%../../src/oProgramieDialog.h#8%%%../../src/oProgramieDialog.cc#3
 
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n

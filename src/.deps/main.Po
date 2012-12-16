@@ -1144,7 +1144,7 @@ main.o: main.cc /usr/include/gtkmm-3.0/gtkmm.h \
  /usr/include/gtkmm-3.0/gtkmm/treestore.h \
  /usr/include/gtkmm-3.0/gtkmm/uimanager.h \
  /usr/include/gtkmm-3.0/gtkmm/viewport.h /usr/include/c++/4.7/iostream \
- ../config.h
+ tetris.h ../config.h
 
 /usr/include/gtkmm-3.0/gtkmm.h:
 
@@ -3623,5 +3623,7 @@ main.o: main.cc /usr/include/gtkmm-3.0/gtkmm.h \
 /usr/include/gtkmm-3.0/gtkmm/viewport.h:
 
 /usr/include/c++/4.7/iostream:
+
+tetris.h:
 
 ../config.h:

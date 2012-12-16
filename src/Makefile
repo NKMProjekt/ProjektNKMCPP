@@ -16,7 +16,6 @@
 
 
 
-
 am__make_dryrun = \
   { \
     am__dry=no; \
@@ -63,9 +62,10 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
-am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(uidir)"
+am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_tetris_OBJECTS = main.$(OBJEXT)
+am_tetris_OBJECTS = main.$(OBJEXT) tetris.$(OBJEXT) \
+	oProgramieTetrisDialog.$(OBJEXT)
 tetris_OBJECTS = $(am_tetris_OBJECTS)
 am__DEPENDENCIES_1 =
 tetris_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -98,6 +98,22 @@ CXXLINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 AM_V_CXXLD = $(am__v_CXXLD_$(V))
 am__v_CXXLD_ = $(am__v_CXXLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CXXLD_0 = @echo "  CXXLD " $@;
+COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
+	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) \
+	$(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
+	$(AM_CFLAGS) $(CFLAGS)
+AM_V_CC = $(am__v_CC_$(V))
+am__v_CC_ = $(am__v_CC_$(AM_DEFAULT_VERBOSITY))
+am__v_CC_0 = @echo "  CC    " $@;
+CCLD = $(CC)
+LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
+	$(AM_LDFLAGS) $(LDFLAGS) -o $@
+AM_V_CCLD = $(am__v_CCLD_$(V))
+am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
+am__v_CCLD_0 = @echo "  CCLD  " $@;
 AM_V_GEN = $(am__v_GEN_$(V))
 am__v_GEN_ = $(am__v_GEN_$(AM_DEFAULT_VERBOSITY))
 am__v_GEN_0 = @echo "  GEN   " $@;
@@ -108,44 +124,16 @@ am__can_run_installinfo = \
     n|no|NO) false;; \
     *) (install-info --version) >/dev/null 2>&1;; \
   esac
-am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
-am__vpath_adj = case $$p in \
-    $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
-    *) f=$$p;; \
-  esac;
-am__strip_dir = f=`echo $$p | sed -e 's|^.*/||'`;
-am__install_max = 40
-am__nobase_strip_setup = \
-  srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*|]/\\\\&/g'`
-am__nobase_strip = \
-  for p in $$list; do echo "$$p"; done | sed -e "s|$$srcdirstrip/||"
-am__nobase_list = $(am__nobase_strip_setup); \
-  for p in $$list; do echo "$$p $$p"; done | \
-  sed "s| $$srcdirstrip/| |;"' / .*\//!s/ .*/ ./; s,\( .*\)/[^/]*$$,\1,' | \
-  $(AWK) 'BEGIN { files["."] = "" } { files[$$2] = files[$$2] " " $$1; \
-    if (++n[$$2] == $(am__install_max)) \
-      { print $$2, files[$$2]; n[$$2] = 0; files[$$2] = "" } } \
-    END { for (dir in files) print dir, files[dir] }'
-am__base_list = \
-  sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
-  sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
-am__uninstall_files_from_dir = { \
-  test -z "$$files" \
-    || { test ! -d "$$dir" && test ! -f "$$dir" && test ! -r "$$dir"; } \
-    || { echo " ( cd '$$dir' && rm -f" $$files ")"; \
-         $(am__cd) "$$dir" && rm -f $$files; }; \
-  }
-DATA = $(ui_DATA)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} "/home/marcin/Pulpit/Projekt C++/missing" --run aclocal-1.11
+ACLOCAL = ${SHELL} "/home/marcin/Pulpit/Projekt C++/ProjektNKMCPP/missing" --run aclocal-1.11
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
 AR = ar
-AUTOCONF = ${SHELL} "/home/marcin/Pulpit/Projekt C++/missing" --run autoconf
-AUTOHEADER = ${SHELL} "/home/marcin/Pulpit/Projekt C++/missing" --run autoheader
-AUTOMAKE = ${SHELL} "/home/marcin/Pulpit/Projekt C++/missing" --run automake-1.11
+AUTOCONF = ${SHELL} "/home/marcin/Pulpit/Projekt C++/ProjektNKMCPP/missing" --run autoconf
+AUTOHEADER = ${SHELL} "/home/marcin/Pulpit/Projekt C++/ProjektNKMCPP/missing" --run autoheader
+AUTOMAKE = ${SHELL} "/home/marcin/Pulpit/Projekt C++/ProjektNKMCPP/missing" --run automake-1.11
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -182,7 +170,7 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} "/home/marcin/Pulpit/Projekt C++/missing" --run makeinfo
+MAKEINFO = ${SHELL} "/home/marcin/Pulpit/Projekt C++/ProjektNKMCPP/missing" --run makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -210,10 +198,10 @@ STRIP = strip
 TETRIS_CFLAGS = -pthread -I/usr/include/gtkmm-3.0 -I/usr/lib/i386-linux-gnu/gtkmm-3.0/include -I/usr/include/atkmm-1.6 -I/usr/include/giomm-2.4 -I/usr/lib/i386-linux-gnu/giomm-2.4/include -I/usr/include/pangomm-1.4 -I/usr/lib/i386-linux-gnu/pangomm-1.4/include -I/usr/include/gtk-3.0 -I/usr/include/cairomm-1.0 -I/usr/lib/i386-linux-gnu/cairomm-1.0/include -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/gtk-3.0/unix-print -I/usr/include/gdkmm-3.0 -I/usr/lib/i386-linux-gnu/gdkmm-3.0/include -I/usr/include/atk-1.0 -I/usr/include/glibmm-2.4 -I/usr/lib/i386-linux-gnu/glibmm-2.4/include -I/usr/include/glib-2.0 -I/usr/lib/i386-linux-gnu/glib-2.0/include -I/usr/include/sigc++-2.0 -I/usr/lib/i386-linux-gnu/sigc++-2.0/include -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/gio-unix-2.0/  
 TETRIS_LIBS = -lgtkmm-3.0 -latkmm-1.6 -lgdkmm-3.0 -lgiomm-2.4 -lpangomm-1.4 -lgtk-3 -lglibmm-2.4 -lcairomm-1.0 -lgdk-3 -latk-1.0 -lgio-2.0 -lpangocairo-1.0 -lgdk_pixbuf-2.0 -lcairo-gobject -lpango-1.0 -lcairo -lsigc-2.0 -lgobject-2.0 -lglib-2.0  
 VERSION = 0.1
-abs_builddir = /home/marcin/Pulpit/Projekt C++/src
-abs_srcdir = /home/marcin/Pulpit/Projekt C++/src
-abs_top_builddir = /home/marcin/Pulpit/Projekt C++
-abs_top_srcdir = /home/marcin/Pulpit/Projekt C++
+abs_builddir = /home/marcin/Pulpit/Projekt C++/ProjektNKMCPP/src
+abs_srcdir = /home/marcin/Pulpit/Projekt C++/ProjektNKMCPP/src
+abs_top_builddir = /home/marcin/Pulpit/Projekt C++/ProjektNKMCPP
+abs_top_srcdir = /home/marcin/Pulpit/Projekt C++/ProjektNKMCPP
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -243,7 +231,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} '/home/marcin/Pulpit/Projekt C++/install-sh'
+install_sh = ${SHELL} '/home/marcin/Pulpit/Projekt C++/ProjektNKMCPP/install-sh'
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -263,8 +251,6 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-uidir = $(pkgdatadir)/ui
-ui_DATA = tetris.ui
 AM_CPPFLAGS = \
 	-DPACKAGE_LOCALE_DIR=\""$(localedir)"\" \
 	-DPACKAGE_SRC_DIR=\""$(srcdir)"\" \
@@ -276,7 +262,11 @@ AM_CFLAGS = \
 	 -g
 
 tetris_SOURCES = \
-	main.cc
+	main.cc \
+	tetris.cc \
+	tetris.h \
+	oProgramieTetrisDialog.cc \
+	oProgramieTetrisDialog.h
 
 tetris_LDFLAGS = 
 tetris_LDADD = $(TETRIS_LIBS)
@@ -372,6 +362,8 @@ distclean-compile:
 	-rm -f *.tab.c
 
 include ./$(DEPDIR)/main.Po
+include ./$(DEPDIR)/oProgramieTetrisDialog.Po
+include ./$(DEPDIR)/tetris.Po
 
 .cc.o:
 	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -399,27 +391,6 @@ mostlyclean-libtool:
 
 clean-libtool:
 	-rm -rf .libs _libs
-install-uiDATA: $(ui_DATA)
-	@$(NORMAL_INSTALL)
-	@list='$(ui_DATA)'; test -n "$(uidir)" || list=; \
-	if test -n "$$list"; then \
-	  echo " $(MKDIR_P) '$(DESTDIR)$(uidir)'"; \
-	  $(MKDIR_P) "$(DESTDIR)$(uidir)" || exit 1; \
-	fi; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(uidir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(uidir)" || exit $$?; \
-	done
-
-uninstall-uiDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(ui_DATA)'; test -n "$(uidir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	dir='$(DESTDIR)$(uidir)'; $(am__uninstall_files_from_dir)
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -505,9 +476,9 @@ distdir: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-all-am: Makefile $(PROGRAMS) $(DATA)
+all-am: Makefile $(PROGRAMS)
 installdirs:
-	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(uidir)"; do \
+	for dir in "$(DESTDIR)$(bindir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -562,7 +533,7 @@ info: info-am
 
 info-am:
 
-install-data-am: install-uiDATA
+install-data-am:
 
 install-dvi: install-dvi-am
 
@@ -608,7 +579,7 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-binPROGRAMS uninstall-local uninstall-uiDATA
+uninstall-am: uninstall-binPROGRAMS uninstall-local
 
 .MAKE: install-am install-strip
 
@@ -620,12 +591,11 @@ uninstall-am: uninstall-binPROGRAMS uninstall-local uninstall-uiDATA
 	install-dvi-am install-exec install-exec-am install-html \
 	install-html-am install-info install-info-am install-man \
 	install-pdf install-pdf-am install-ps install-ps-am \
-	install-strip install-uiDATA installcheck installcheck-am \
-	installdirs maintainer-clean maintainer-clean-generic \
-	mostlyclean mostlyclean-compile mostlyclean-generic \
-	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
-	uninstall-am uninstall-binPROGRAMS uninstall-local \
-	uninstall-uiDATA
+	install-strip installcheck installcheck-am installdirs \
+	maintainer-clean maintainer-clean-generic mostlyclean \
+	mostlyclean-compile mostlyclean-generic mostlyclean-libtool \
+	pdf pdf-am ps ps-am tags uninstall uninstall-am \
+	uninstall-binPROGRAMS uninstall-local
 
 
 # Remove ui directory on uninstall

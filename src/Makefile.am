@@ -3,9 +3,6 @@
 ## Created by Anjuta
 
 
-uidir = $(pkgdatadir)/ui
-ui_DATA = tetris.ui
-
 
 AM_CPPFLAGS = \
 	-DPACKAGE_LOCALE_DIR=\""$(localedir)"\" \
@@ -20,7 +17,11 @@ AM_CFLAGS =\
 bin_PROGRAMS = tetris
 
 tetris_SOURCES = \
-	main.cc
+	main.cc \
+	tetris.cc \
+	tetris.h \
+	oProgramieTetrisDialog.cc \
+	oProgramieTetrisDialog.h
 
 tetris_LDFLAGS = 
 
