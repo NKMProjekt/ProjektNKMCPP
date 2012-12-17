@@ -7,7 +7,7 @@
 
 #include <gtkmm.h>
 #include <iostream>
-#include "tetris.h"
+#include "tetrisWindow.h"
 #include "config.h"
 
 int

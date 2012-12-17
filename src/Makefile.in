@@ -64,8 +64,8 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_tetris_OBJECTS = main.$(OBJEXT) tetris.$(OBJEXT) \
-	oProgramieTetrisDialog.$(OBJEXT)
+am_tetris_OBJECTS = main.$(OBJEXT) oProgramieTetrisDialog.$(OBJEXT) \
+	planszaGryTetrisDrawingArea.$(OBJEXT) tetrisWindow.$(OBJEXT)
 tetris_OBJECTS = $(am_tetris_OBJECTS)
 am__DEPENDENCIES_1 =
 tetris_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -263,10 +263,13 @@ AM_CFLAGS = \
 
 tetris_SOURCES = \
 	main.cc \
-	tetris.cc \
-	tetris.h \
 	oProgramieTetrisDialog.cc \
-	oProgramieTetrisDialog.h
+	oProgramieTetrisDialog.h \
+	planszaGryTetrisDrawingArea.cc \
+	planszaGryTetrisDrawingArea.h \
+	test.png \
+	tetrisWindow.h \
+	tetrisWindow.cc
 
 tetris_LDFLAGS = 
 tetris_LDADD = $(TETRIS_LIBS)
@@ -363,7 +366,8 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/oProgramieTetrisDialog.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tetris.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/planszaGryTetrisDrawingArea.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tetrisWindow.Po@am__quote@
 
 .cc.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

@@ -18,10 +18,13 @@ bin_PROGRAMS = tetris
 
 tetris_SOURCES = \
 	main.cc \
-	tetris.cc \
-	tetris.h \
 	oProgramieTetrisDialog.cc \
-	oProgramieTetrisDialog.h
+	oProgramieTetrisDialog.h \
+	planszaGryTetrisDrawingArea.cc \
+	planszaGryTetrisDrawingArea.h \
+	test.png \
+	tetrisWindow.h \
+	tetrisWindow.cc
 
 tetris_LDFLAGS = 
 
