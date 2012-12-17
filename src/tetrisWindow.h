@@ -1,0 +1,42 @@
+/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*-  */
+/*
+ * tetris.h
+ * Copyright (C) 2012 Noemi Szypuła, Karol Piotrowicz, Marcin Kurtz <nkmprojekt@gmail.com>
+ * 
+ */
+#include <gtkmm/button.h>
+#include <gtkmm/window.h>
+#include <gtkmm/box.h>
+#include <gtkmm/label.h>
+#include "planszaGryTetrisDrawingArea.h"
+
+class Tetris : public Gtk::Window
+{
+
+	public:
+		Tetris();//Konstruktor
+		virtual ~Tetris();//Dekstruktor	
+	
+	private:
+		//Nazwa okna gry
+		Glib::ustring nazwaOknaGry;
+		
+		//Przyciski
+		Gtk::Button buttonNowaGra, buttonWyjdzZGry, buttonOProgramie;
+
+		//Etykiety dla liczby punktow
+		Gtk::Label etkietaLiczbyPunktow;
+		Gtk::Label etykietaLiczbaPunktowGracza;
+		//Plansza gry
+		PlanszaGryTetris planszaGry;
+		
+		//Pudełko na przyciski
+		Gtk::Box boxOknoGlowne;
+		Gtk::Box boxMenuGlowne;
+
+		
+		//Funkcje obsługujące sygnały
+		void NowaGra();
+		void WyjdzZGry(const Glib::ustring&);
+		void OProgramie();
+};

@@ -1,0 +1,68 @@
+/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*-  */
+/*
+ * tetris.cc
+ * Copyright (C) 2012 Noemi Szypuła, Karol Piotrowicz, Marcin Kurtz <nkmprojekt@gmail.com>
+ * 
+ */
+
+#include <iostream>
+#include "tetris.h"
+#include "oProgramieTetrisDialog.h"
+
+//Konstruktor Tetris++
+Tetris::Tetris() :
+buttonNowaGra("Nowa gra"),
+buttonWyjdzZGry("Wyjdź z gry"),
+buttonOProgramie("O progrmie")
+{
+	nazwaOknaGry = "Tetris++";//Nazwa okna gry
+	set_title (nazwaOknaGry);//Ustawianie nazwy okna
+	set_border_width(10);//Ustalanie odległości od marginesu
+	
+	
+	//Dodawanie grid do okna
+	add(gridNaWigdety);
+
+	
+	//Dodawanie przyciskow do grid
+	gridNaWigdety.add(buttonNowaGra);
+	gridNaWigdety.add(buttonWyjdzZGry);
+	gridNaWigdety.add(buttonOProgramie);
+
+	//Dodawanie planszy gry do grid
+	gridNaWigdety.attach_next_to(planszaGry, buttonNowaGra, Gtk::POS_BOTTOM, 2, 1);
+	
+	//Przyłączanie sygnałów przycisków do funkcji
+	buttonNowaGra.signal_clicked().connect(sigc::mem_fun(*this,&Tetris::NowaGra));
+	buttonOProgramie.signal_clicked().connect(sigc::mem_fun(*this,&Tetris::OProgramie));
+	
+	//Łączenie z przekazaniem argumentów
+	buttonWyjdzZGry.signal_clicked().connect(sigc::bind<Glib::ustring>(sigc::mem_fun (*this,&Tetris::WyjdzZGry),"OK"));
+
+	//Wyświetlanie wszystkich widgetow okna
+	show_all_children();
+}
+
+//Destruktor
+Tetris::~Tetris()
+{
+}
+
+//Handler dla przycisku buttonNowaGra
+void Tetris::NowaGra()
+{
+	std::cout << "Wybrano nowa gre!" << std::endl;
+}
+
+//Handler dla przycisku buttonNowaGra
+void Tetris::OProgramie()
+{
+	OProgramieTetrisDialog oProgramie;
+	oProgramie.run();
+}
+
+//Handler dla przycisku buttonWyjdzZGry
+void Tetris::WyjdzZGry(const Glib::ustring& dane)
+{
+	std::cout << "Wybrano wyjście z gry! " << dane << std::endl;
+}

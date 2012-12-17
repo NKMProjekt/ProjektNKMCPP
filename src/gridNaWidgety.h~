@@ -1,0 +1,15 @@
+/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*-  */
+/*
+ * gridNaWidgety.h
+ * Copyright (C) 2012 Noemi Szypuła, Karol Piotrowicz, Marcin Kurtz <nkmprojekt@gmail.com>
+ * 
+ */
+#include <gtkmm/grid.h>
+
+class GridNaWidgety : public Gtk::Grid
+{
+	public:
+		GridNaWidgety();
+		virtual ~GridNaWidgety();
+		
+};

@@ -1,0 +1,13 @@
+/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*-  */
+/*
+ * oProgramieDialog.h
+ * Copyright (C) 2012 Noemi Szypuła, Karol Piotrowicz, Marcin Kurtz <nkmprojekt@gmail.com>
+ * 
+ */
+
+class OProgramieTetris : public Gtk::AboutDialog
+{
+	public:
+		OProgramie
+	private:
+}

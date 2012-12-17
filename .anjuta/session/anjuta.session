@@ -5,6 +5,9 @@ Geometry=1311x744+55+24
 [Project Manager]
 Expand=ProjektNKMCPP%%%ProjektNKMCPP//src%%%ProjektNKMCPP//src//tetris%%%ProjektNKMCPP//tetrisdoc
 
+[File Loader]
+Files=../../src/oProgramieTetrisDialog.cc#1%%%../../src/planszaGryTetrisDrawingArea.cc#1%%%../../src/tetrisWindow.cc#1
+
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n
 
